@@ -1,5 +1,4 @@
 package com.example.cloudlivingroom;
-
 import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.os.Handler;
@@ -14,11 +13,9 @@ import android.widget.ProgressBar;
 import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.fragment.NavHostFragment;
-
 public class FirstFragment extends Fragment {
     static Handler handler;
     @Override

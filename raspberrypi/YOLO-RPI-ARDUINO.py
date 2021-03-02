@@ -75,7 +75,9 @@ def YOLO_TEST():
             command.put((1,"R-K-A0-OP-00"),block=True)
             time.sleep(3)
         else :
-            time.sleep(1)
+            command.put((1,"R-L-A0-SD-00"),block=True)
+            command.put((1,"R-K-A0-SD-00"),block=True)
+            time.sleep(3)
 def SERIAL_COMMUNICATE():
     ser = serial.Serial('/dev/ttyUSB0', 9600, timeout=1)
     while True:
@@ -106,12 +108,22 @@ def ANALYZE():
                 command.put((3,"R-K-W0-00-60"),block=True)
                 command.put((3,"R-K-F0-OP-00"),block=True)
                 time.sleep(0.05)
+            elif temperature<10:
+                command.put((3,"R-L-W0-00-10"),block=True)
+                command.put((3,"R-K-W0-00-10"),block=True)
+                time.sleep(0.05)
         if MQS=="0":
             command.put((1,"R-L-W0-00-90"),block=True)
             command.put((1,"R-L-A0-OP-00"),block=True)
             time.sleep(0.05)
+        elif MQS=="1":
+            command.put((1,"R-L-A0-SD-00"),block=True)
+            time.sleep(0.05)
         if APP=="0":
             command.put((3,"R-L-E0-OP-00"),block=True)
+            time.sleep(0.05)
+        elif APP=="1":
+            command.put((3,"R-L-E0-SD-00"),block=True)
             time.sleep(0.05)
 def ANDROID_SOCKET():
     try:
